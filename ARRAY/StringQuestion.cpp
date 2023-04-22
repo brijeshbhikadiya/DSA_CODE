@@ -28,7 +28,7 @@ bool checkSubstring(string abc)
 }
 int main()
 {
-        string abc="777777447777777777";
+        string abc="777777777777777777777777777777777777777777777777777777777777777777777";
         bool ans=checkSubstring(abc);
 
        if(ans)
@@ -37,6 +37,6 @@ int main()
        }
        else
        {
-            cout<<"bad";
+         cout<<"bad";
        }
 }
