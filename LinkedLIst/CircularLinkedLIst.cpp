@@ -27,6 +27,11 @@ void print(Node* &tail)
 {
    
     Node* temp=tail;
+    if(tail==NULL)
+    {
+        cout<<"LIST IS EMPTY "<<endl;
+        return;
+    }
     do
     {
         cout<<tail->data<<" ";
@@ -39,8 +44,7 @@ void print(Node* &tail)
 void insertElement(Node* &tail,int element,int d)
 {
 
-   
-   
+
     //empty list
     if(tail==NULL)
     {
@@ -86,10 +90,19 @@ void deleteNode(Node* &tail,int value)
         }
 
         prev->next=curr->next;
+
+        //1 node linkedlist delete;
+        if(curr==prev)
+        {
+            tail=NULL;
+        }
+
+        //>=2 linklist element
         if(tail==curr)
         {
             tail=prev;
         }
+
         curr->next=NULL;
         delete curr;
     }
@@ -107,15 +120,15 @@ int main()
     insertElement(tail,3,7);
     print(tail);
 
-    insertElement(tail,7,9);
-    print(tail);
+    // insertElement(tail,7,9);
+    // print(tail);
 
-    insertElement(tail,9,11);
-    print(tail);
+    // insertElement(tail,9,11);
+    // print(tail);
 
-    insertElement(tail,7,12);
-    print(tail);
+    // insertElement(tail,7,12);
+    // print(tail);
 
-    deleteNode(tail,12);
+    deleteNode(tail,7);
     print(tail);
 }
