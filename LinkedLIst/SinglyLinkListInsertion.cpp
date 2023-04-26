@@ -15,22 +15,74 @@ class Node   //node is collection data and address of next node.
         this->next=NULL;
     }
 
+    //deconstructor
+    ~Node()
+    {
+        int value=this->data;
+        if(this->next!=NULL)
+        {
+            delete next;
+            this->next=NULL;
+        }
+        cout<<"memory free for "<<value<<endl;
+    }
+
      
 };
 
  void InsertionAtHead(Node* &head,int d)
     {
-     
         //new node create
         Node* temp=new Node(d);  //temp node banavshe je add karvani che e
         temp->next=head;  //aenu pointer head ne point karshe
         head=temp;  //navo head temp ma vayavshe km ke pehli node temp che.
-
     }
+
+    
+ void InsertionAtTail(Node* &tail,int d)
+    {
+        //new node create
+        Node* temp=new Node(d);  //temp node banavshe je add karvani che e
+        tail->next=temp; //aenu pointer temp ne point karshe
+        tail=temp;  //navo tail temp ma vayavshe km last node temp che.
+    }
+
+void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
+{
+
+    if(position==1)   //if position first j hoy to direct call insertionathead..
+    {
+        InsertionAtHead(head,d);
+        return;
+    }
+
+  
+    int cnt=1;
+    Node* temp=head;
+
+    while(cnt<position-1)
+    {
+        temp=temp->next;    //je position ma nakhvanu hoy teni -1 node lakhi temp ne traverse karvvu.
+        cnt++;
+    }
+
+      if(temp->next==NULL)  //jo last node hoy to insertionattail call karvu.
+    {
+        InsertionAtTail(tail,d);
+        return;
+    }
+
+    //insertion at middle       //this is for middle value
+    Node* nextToInsert=new Node(d);
+
+    nextToInsert->next = temp->next;
+    temp->next = nextToInsert;
+
+}
 
      //print a linked list pass the head value
    
-    void print(Node* &head)
+    void print(Node* &head)  //refrence lidhu kem ke aapde original linkedlist ma j change karvu che aetale.
     {
      
         Node* temp=head;  //head ne temprory mate temp ma store karyo.
@@ -43,20 +95,75 @@ class Node   //node is collection data and address of next node.
         cout<<endl;
     }
 
+    void deleteNode(int position,Node* &head)
+    {
+        if(position==1)
+        {
+            Node* temp=head;
+            head=head->next;
+            temp->next=NULL;
+            delete temp;
+        }
+        else
+        {
+            Node* curr=head;
+            Node* prev=NULL;
+            int cnt=1;
+
+            while (cnt<position)
+            {
+                 prev=curr;
+                curr=curr->next;
+               
+                cnt++;
+            }
+
+            prev->next=curr->next;
+            curr->next=NULL;
+            delete curr;
+            
+        }
+    }
 
 int main()
 {
-    Node* node1=new Node(10);  //creation of object  and when object is create autimatically call a constructor.
+
+   // -> aa add karshe element head thi.
+//     Node* node1=new Node(10);  //creation of object  and when object is create autimatically call a constructor.
 
 
-   Node* head=node1;
-   print(head);
+//    Node* head=node1;
+//    Node* tail=node1;
+//    print(head);
 
-   InsertionAtHead(head,12); //12 head karya aama 12 per head hase.
-    print(head);
+//    InsertionAtHead(head,12); //12 head karya aama 12 per head hase.
+//     print(head);
 
-    InsertionAtHead(head,15); ///15 head karya aama 12 per head hase.
-    print(head);
+//     InsertionAtHead(head,15); ///15 head karya aama 12 per head hase.
+//     print(head);
+
+
+     //   -> aa add karshe element tail thi.
+    Node* node2=new Node(10);
+    Node* head1=node2;
+    Node* tail1=node2;
+    print(head1);
+
+
+    InsertionAtTail(tail1,12); //12 head karya aama 12 per head hase.
+    print(head1);
+
+    InsertionAtTail(tail1,15); ///15 head karya aama 12 per head hase.
+    print(head1);
+
+    InsertionAtMiddle(tail1,head1,4,22);
+    print(head1);
+
+    cout<<"head"<<head1->data<<endl;
+    cout<<"tail"<<tail1->data<<endl; 
+
+    deleteNode(4,head1);
+    print(head1);
 
    
 }
