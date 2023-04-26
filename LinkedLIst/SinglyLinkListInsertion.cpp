@@ -96,12 +96,13 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
     }
 
     //delete node in linklist
-    void deleteNode(int position,Node* &head)
+    void deleteNode(int position,Node* &head,Node* &tail)
     {
         if(position==1)
         {
             Node* temp=head;
             head=head->next;
+
             temp->next=NULL;
             delete temp;    //hamesha deconstructor call karta pehla de delete karvanu aene null set karvu.
         }
@@ -120,10 +121,16 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
                 cnt++;
             }
 
+            if(curr->next==NULL)
+            {
+                tail=prev;
+            }
+
             prev->next=curr->next;  //simply delete logic
 
             curr->next=NULL;
             delete curr;  //call deconstructor
+
             
         }
     }
@@ -165,8 +172,11 @@ int main()
     cout<<"head"<<head1->data<<endl;
     cout<<"tail"<<tail1->data<<endl; 
 
-    deleteNode(4,head1);
+    deleteNode(3,head1,tail1);
     print(head1);
+
+    cout<<"head"<<head1->data<<endl;
+    cout<<"tail"<<tail1->data<<endl; 
 
    
 }
