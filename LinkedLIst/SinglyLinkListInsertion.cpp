@@ -15,7 +15,7 @@ class Node   //node is collection data and address of next node.
         this->next=NULL;
     }
 
-    //deconstructor
+    //deconstructor     deconstructor call karva keyword use thay delete
     ~Node()
     {
         int value=this->data;
@@ -95,6 +95,7 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
         cout<<endl;
     }
 
+    //delete node in linklist
     void deleteNode(int position,Node* &head)
     {
         if(position==1)
@@ -102,25 +103,27 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
             Node* temp=head;
             head=head->next;
             temp->next=NULL;
-            delete temp;
+            delete temp;    //hamesha deconstructor call karta pehla de delete karvanu aene null set karvu.
         }
         else
         {
             Node* curr=head;
             Node* prev=NULL;
+
             int cnt=1;
 
             while (cnt<position)
             {
-                 prev=curr;
+                prev=curr;
                 curr=curr->next;
                
                 cnt++;
             }
 
-            prev->next=curr->next;
+            prev->next=curr->next;  //simply delete logic
+
             curr->next=NULL;
-            delete curr;
+            delete curr;  //call deconstructor
             
         }
     }
