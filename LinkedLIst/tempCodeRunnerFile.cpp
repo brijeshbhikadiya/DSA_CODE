@@ -1,5 +1,10 @@
-insertAtHead(head,11);
-    // print(head);
+ // bool ans=isCircular(head1);
+    // if(ans)
+    // {
+    //     cout<<"IT IS A CIRCULAR LINKLIST"<<endl;
 
-    // insertAtHead(head,12);
-    // print(head);
+    // }
+    // else
+    // {
+    //     cout<<"IT IS NOT A CIRCULAR LINKLIST"<<endl;
+    // }
