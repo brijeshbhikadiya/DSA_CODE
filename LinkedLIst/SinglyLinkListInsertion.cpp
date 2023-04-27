@@ -16,6 +16,7 @@ class Node   //node is collection data and address of next node.
     }
 
     //deconstructor     deconstructor call karva keyword use thay delete
+                       // it used to memory free karva. a linkedlist node.
     ~Node()
     {
         int value=this->data;
@@ -121,7 +122,7 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
                 cnt++;
             }
 
-            if(curr->next==NULL)
+            if(curr->next==NULL)  //tail ne set karyu khali bus.
             {
                 tail=prev;
             }

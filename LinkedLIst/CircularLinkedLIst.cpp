@@ -32,7 +32,7 @@ void print(Node* &tail)
         cout<<"LIST IS EMPTY "<<endl;
         return;
     }
-    do
+    do    //aek var to print karshej.
     {
         cout<<tail->data<<" ";
         tail=tail->next;

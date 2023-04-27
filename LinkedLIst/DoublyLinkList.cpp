@@ -30,14 +30,14 @@ class Node{
 
 void insertAtHead(Node* &head,int d,Node* &tail)
 {
-    if(head==NULL)
+    if(head==NULL)  //jo node empty call thay to.
     {
         Node* temp=new Node(d);
         head=temp;
         tail=temp;
     }
     else
-    {
+    {  //empty shivay na aetale ke >=2
     Node* temp=new Node(d);
     temp->next=head;
     head->prev=temp;
@@ -48,7 +48,7 @@ void insertAtHead(Node* &head,int d,Node* &tail)
 
 void insertAtTail(Node* &tail,int d,Node* head)
 {
-    if(tail==NULL)
+    if(tail==NULL)  //tail null hoy tayre.
     {
         Node* temp=new Node(d);
         tail=temp;
@@ -56,7 +56,7 @@ void insertAtTail(Node* &tail,int d,Node* head)
     }
     else
     {
-     Node* temp=new Node(d);
+    Node* temp=new Node(d);
     tail->next=temp;
     temp->prev=tail;
     tail=temp;
