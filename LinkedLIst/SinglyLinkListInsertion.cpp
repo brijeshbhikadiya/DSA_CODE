@@ -1,4 +1,5 @@
 #include<iostream>
+#include<unordered_map>
 using namespace std;
 
 class Node   //node is collection data and address of next node.
@@ -79,6 +80,33 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
     nextToInsert->next = temp->next;
     temp->next = nextToInsert;
 
+}
+
+bool isCircular(Node* head)
+{
+  if(head==NULL)
+  {
+    return true;
+    
+}
+unordered_map<Node* ,bool> m;
+  m[head]=true;
+Node* temp=head->next;
+  
+ while(temp!=NULL && temp!=head)
+    { 
+      m[temp]=true;
+      temp=temp->next;
+}
+
+  if(m[temp])
+  {
+    return true;
+    }
+  else{
+    return false;
+}
+  
 }
 
      //print a linked list pass the head value
@@ -170,14 +198,25 @@ int main()
     InsertionAtMiddle(tail1,head1,4,22);
     print(head1);
 
-    cout<<"head"<<head1->data<<endl;
-    cout<<"tail"<<tail1->data<<endl; 
+    // cout<<"head"<<head1->data<<endl;
+    // cout<<"tail"<<tail1->data<<endl; 
 
-    deleteNode(3,head1,tail1);
-    print(head1);
+    // deleteNode(3,head1,tail1);
+    // print(head1);
 
-    cout<<"head"<<head1->data<<endl;
-    cout<<"tail"<<tail1->data<<endl; 
+    // cout<<"head"<<head1->data<<endl;
+    // cout<<"tail"<<tail1->data<<endl; 
+
+      bool ans=isCircular(head1);
+    if(ans)
+    {
+        cout<<"IT IS A CIRCULAR LINKLIST"<<endl;
+
+    }
+    else
+    {
+        cout<<"IT IS NOT A CIRCULAR LINKLIST"<<endl;
+    }
 
    
 }

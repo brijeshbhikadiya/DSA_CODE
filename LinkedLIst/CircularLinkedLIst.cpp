@@ -1,4 +1,6 @@
 #include<iostream>
+#include<map>
+#include<unordered_map>
 using namespace std;
 class Node{
     public:
@@ -72,6 +74,37 @@ void insertElement(Node* &tail,int element,int d)
     }
 }
 
+
+
+
+bool isCircular(Node* head)
+{
+  if(head==NULL)
+  {
+    return true;
+    
+}
+unordered_map<Node* ,bool> m;
+  m[head]=true;
+Node* temp=head->next;
+  
+ while(temp!=NULL && temp!=head)
+    { 
+      m[temp]=true;
+      temp=temp->next;
+}
+
+  if(m[temp])
+  {
+    return true;
+
+    }
+  else{
+    return false;
+}
+  
+}
+
 void deleteNode(Node* &tail,int value)
 {
     if(tail==NULL)
@@ -129,6 +162,16 @@ int main()
     // insertElement(tail,7,12);
     // print(tail);
 
-    deleteNode(tail,7);
-    print(tail);
+    // deleteNode(tail,7);
+    // print(tail);
+    bool ans=isCircular(tail);
+    if(ans)
+    {
+        cout<<"IT IS A CIRCULAR LINKLIST"<<endl;
+
+    }
+    else
+    {
+        cout<<"IT IS NOT A CIRCULAR LINKLIST"<<endl;
+    }
 }
