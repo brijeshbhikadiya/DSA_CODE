@@ -124,7 +124,7 @@ bool isCircular(Node* head)
     
 }
     unordered_map<Node* ,bool> m;
-     m[head]=true;
+    m[head]=true;
     Node* temp=head->next;
   
  while(temp!=NULL && temp!=head)
