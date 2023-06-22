@@ -45,10 +45,8 @@ void print(Node* &tail)
 
 void insertElement(Node* &tail,int element,int d)
 {
-
-
     //empty list
-    if(tail==NULL)
+    if(tail==NULL)  //either you should use head extend of tail.
     {
        
         Node* newnode=new Node(d);

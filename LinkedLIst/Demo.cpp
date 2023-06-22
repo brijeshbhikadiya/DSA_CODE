@@ -23,6 +23,6 @@ int main()
 {
     Node* node1=new Node(10);  //creation of object  and when object is create autimatically call a constructor.
     cout<<node1->data<<endl;  //print data
-   cout<<node1->next<<endl;  //print address
+    cout<<node1->next<<endl;  //print address
 }
 
