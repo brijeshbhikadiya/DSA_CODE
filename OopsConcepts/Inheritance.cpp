@@ -7,6 +7,7 @@ class Student{
         int weight;
         int height;
         int age;
+        int rollno;
 
     public:
 
