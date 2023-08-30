@@ -202,9 +202,7 @@ void deleteNode(Node* &tail,int value)
 int main()
 {
     Node* tail=NULL;
-
-
-
+    
     insertElement(tail,5,3);
     print(tail);
 

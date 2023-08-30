@@ -58,6 +58,13 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
         return;
     }
 
+    
+      if(temp->next==NULL)  //jo last node hoy to insertionattail call karvu.
+    {
+        InsertionAtTail(tail,d);
+        return;
+    }
+
   
     int cnt=1;
     Node* temp=head;
@@ -68,11 +75,6 @@ void InsertionAtMiddle(Node* &tail,Node* &head,int position,int d)
         cnt++;
     }
 
-      if(temp->next==NULL)  //jo last node hoy to insertionattail call karvu.
-    {
-        InsertionAtTail(tail,d);
-        return;
-    }
 
     //insertion at middle       //this is for middle value
     Node* nextToInsert=new Node(d);
