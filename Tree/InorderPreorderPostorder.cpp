@@ -122,7 +122,7 @@ void levelOrderTraversal(node* root)
     }
 }
 
-node* buildFromLevelOrder(node* &root)
+node* buildFromLevelOrder(node* &root)  //aaa tree aapi hoy ne banavi hoy to aa rite kravanu.
 {
     queue<node*> q;
     //the value of root node :
